@@ -5,8 +5,6 @@
 " Last Changed : January 17th, 2017
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader=","
-
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
@@ -24,9 +22,12 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GENERAL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader=","
 
 " Quick editing and saving of init.vim
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -52,6 +53,7 @@ autocmd GUIEnter * set visualbell t_vb=
 tnoremap <Esc> <C-\><C-n>
 
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AESTHETICS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,6 +61,8 @@ tnoremap <Esc> <C-\><C-n>
 set termguicolors
 
 colorscheme seti
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SPACES/TABS
@@ -122,8 +126,10 @@ nmap <leader>bq :bprev <Bar> :bd #<CR>
 
 let g:deoplete#enable_at_startup=1
 
+
 " fzf
 """"""""""""""""""""""""""""""""""""""""
+
 nnoremap <C-p> :FZF<CR>
 
 
@@ -165,7 +171,7 @@ let g:airline#extensions#whitespace#checks=[]
 " vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""
 
-let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-let g:gitgutter_sign_modified_removed = emoji#for('collision')
+"let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+"let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+"let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+"let g:gitgutter_sign_modified_removed = emoji#for('collision')
