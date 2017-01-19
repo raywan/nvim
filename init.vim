@@ -18,6 +18,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'matze/vim-move'
 
 call plug#end()
 
@@ -30,8 +31,8 @@ call plug#end()
 let mapleader=","
 
 " Quick editing and saving of init.vim
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 set number " Turn on line numbering
 set showcmd " Show command at the bottom
@@ -60,7 +61,7 @@ tnoremap <Esc> <C-\><C-n>
 
 set termguicolors
 
-colorscheme seti
+colorscheme molokai
 
 
 
@@ -101,19 +102,19 @@ noremap <silent> <leader><space> :nohlsearch<CR>
 set hidden
 
 " Open a new empty buffer
-nmap <leader>t :enew<CR>
+nnoremap <leader>t :enew<CR>
 
 " Go to the next buffer
-nmap <leader>l :bnext<CR>
+nnoremap <leader>l :bnext<CR>
 
 " Go to the previous buffer
-nmap <leader>h :bprev<CR>
+nnoremap <leader>h :bprev<CR>
 
 " List all the buffers
-nmap <leader>bl :Buffer<CR>
+nnoremap <leader>bl :Buffer<CR>
 
 " Delete the current buffer and move to the previous one
-nmap <leader>bq :bprev <Bar> :bd #<CR>
+nnoremap <leader>bq :bprev <Bar> :bd #<CR>
 
 
 
@@ -131,6 +132,12 @@ let g:deoplete#enable_at_startup=1
 """"""""""""""""""""""""""""""""""""""""
 
 nnoremap <C-p> :FZF<CR>
+
+
+" vim-move
+""""""""""""""""""""""""""""""""""""""""
+
+let g:move_key_modifier='C'
 
 
 " vim-airline
