@@ -2,7 +2,7 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : November 11th, 2011
-" Last Changed : January 17th, 2017
+" Last Changed : January 19th, 2017
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
@@ -19,6 +19,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -61,7 +62,7 @@ tnoremap <Esc> <C-\><C-n>
 
 set termguicolors
 
-colorscheme molokai
+colorscheme nord
 
 
 
@@ -146,7 +147,7 @@ let g:move_key_modifier='C'
 set laststatus=2
 set encoding=utf-8
 
-let g:airline_theme='dark'
+let g:airline_theme='nord'
 
 " Change the seperators
 let g:airline_left_sep = ' '
@@ -178,6 +179,9 @@ let g:airline#extensions#whitespace#checks=[]
 " vim-gitgutter
 """"""""""""""""""""""""""""""""""""""""
 
+let g:gitgutter_sign_modified='•'
+let g:gitgutter_sign_added='❖'
+highlight GitGutterAdd guifg = '#A3E28B'
 "let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
 "let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 "let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
