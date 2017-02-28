@@ -20,6 +20,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
+Plug 'matze/vim-move'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -186,3 +188,9 @@ highlight GitGutterAdd guifg = '#A3E28B'
 "let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 "let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 "let g:gitgutter_sign_modified_removed = emoji#for('collision')
+
+
+" vim-move
+""""""""""""""""""""""""""""""""""""""""
+
+let g:move_key_modifier = 'C'
