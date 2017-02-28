@@ -20,7 +20,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
-Plug 'matze/vim-move'
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
@@ -55,6 +54,9 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " Go to normal mode when in the terminal emulator
 tnoremap <Esc> <C-\><C-n>
+
+" Shortcut to insert dates (useful for vimwiki)
+inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 
 
