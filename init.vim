@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 

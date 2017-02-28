@@ -5,9 +5,7 @@ Minimal configurations to have a nice experience in Vim.
 ## Installation
 
 1. Clone this repo
-2. Install [vim-plug](https://github.com/junegunn/vim-plug) into the `autoload` directory.
-3. Launch `nvim`
-4. Run `:PlugInstall`
+2. Run `sh setup.sh`
 
 ## Packages
 
