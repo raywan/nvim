@@ -197,3 +197,10 @@ highlight GitGutterAdd guifg = '#A3E28B'
 """"""""""""""""""""""""""""""""""""""""
 
 let g:move_key_modifier = 'C'
+
+
+" vimwiki
+""""""""""""""""""""""""""""""""""""""""
+
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/index.wiki'},
+                      \{'path_html': '~/Dropbox/vimwiki/html/'}]
