@@ -22,6 +22,7 @@ Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'zchee/deoplete-jedi'
+Plug 'dracula/vim'
 
 call plug#end()
 
@@ -67,7 +68,7 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 set termguicolors
 
-colorscheme nord
+colorscheme dracula
 
 
 
@@ -152,7 +153,7 @@ let g:move_key_modifier='C'
 set laststatus=2
 set encoding=utf-8
 
-let g:airline_theme='nord'
+let g:airline_theme='dracula'
 
 " Change the seperators
 let g:airline_left_sep = ' '
