@@ -1,14 +1,15 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoVim Configurations
 " Author       : Raymond Wan
-" Created      : November 11th, 2011
-" Last Changed : January 19th, 2017
+" Created      : 2011-11-11
+" Last Changed : 2017-10-11
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'jalvesaq/Nvim-R'
 Plug 'sheerun/vim-polyglot'
@@ -23,6 +24,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'zchee/deoplete-jedi'
 Plug 'dracula/vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -173,7 +176,7 @@ let g:airline#extensions#tabline#right_sep = ' '
 let g:airline#extensions#tabline#right_alt_sep = '|'
 
 " Show just the filename
-let g:airline#extensions#tabline#fnamemod=':t' 
+let g:airline#extensions#tabline#fnamemod=':t'
 
 " Show the buffer number
 let g:airline#extensions#tabline#buffer_nr_show=1
@@ -192,6 +195,12 @@ highlight GitGutterAdd guifg = '#A3E28B'
 "let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 "let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 "let g:gitgutter_sign_modified_removed = emoji#for('collision')
+
+
+" NERDTree
+""""""""""""""""""""""""""""""""""""""""
+
+map <leader>\ :NERDTreeToggle<CR>
 
 
 " vim-move
