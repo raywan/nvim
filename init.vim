@@ -37,6 +37,10 @@ call plug#end()
 
 let mapleader=","
 
+" Shortcut for make
+nnoremap <leader>j :make<CR>
+
+
 " Quick editing and saving of init.vim
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -127,6 +131,15 @@ nnoremap <leader>bl :Buffer<CR>
 nnoremap <leader>bq :bprev <Bar> :bd #<CR>
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LANGUAGE CONFIGURATIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au FileType go set noexpandtab
+au FileType go set shiftwidth=2
+au FileType go set softtabstop=2
+au FileType go set tabstop=2
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN CONFIGURATIONS
@@ -214,3 +227,9 @@ let g:move_key_modifier = 'C'
 
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/index.wiki'},
                       \{'path_html': '~/Dropbox/vimwiki/html/'}]
+
+
+" vim-go
+""""""""""""""""""""""""""""""""""""""""
+
+let g:go_auto_type_info = 1
