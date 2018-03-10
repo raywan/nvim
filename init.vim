@@ -15,6 +15,7 @@ Plug 'jalvesaq/Nvim-R'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
+Plug 'tpope/fugitive'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -90,6 +91,9 @@ set shiftwidth=2 " Number of spaces when performing shift+>>
 set colorcolumn=80 " Show a column at 80 characters
 set smarttab " insert tab according to shiftwidth not tabstop
 
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -154,7 +158,9 @@ let g:deoplete#enable_at_startup=1
 " fzf
 """"""""""""""""""""""""""""""""""""""""
 
-nnoremap <C-p> :FZF<CR>
+"nnoremap ; :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+"nnoremap <leader>t :FZF<CR>
 
 
 " vim-move
