@@ -16,14 +16,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
 Plug 'tpope/fugitive'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
-Plug 'zchee/deoplete-jedi'
 Plug 'dracula/vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go'
