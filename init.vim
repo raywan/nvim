@@ -2,7 +2,7 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : 2011-11-11
-" Last Changed : 2017-10-11
+" Last Changed : 2018-09-03
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
@@ -167,6 +167,15 @@ nnoremap <C-p> :Files<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 let g:move_key_modifier='C'
+
+
+" vim-fugitive
+""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
 
 
 " vim-airline
