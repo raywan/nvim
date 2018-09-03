@@ -15,8 +15,9 @@ Plug 'jalvesaq/Nvim-R'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
-Plug 'tpope/fugitive'
+Plug 'tpope/vim-fugitive'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-clang'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
