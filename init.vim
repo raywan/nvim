@@ -8,6 +8,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
@@ -24,7 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go'
 
