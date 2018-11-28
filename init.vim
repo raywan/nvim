@@ -40,8 +40,7 @@ call plug#end()
 let mapleader=","
 
 " Shortcut for make
-nnoremap <leader>j :make<CR>
-
+nnoremap<leader>m :make<CR>
 
 " Quick editing and saving of init.vim
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -69,6 +68,12 @@ tnoremap <Esc> <C-\><C-n>
 " Shortcut to insert dates (useful for vimwiki)
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
+" For listing errors
+nnoremap <leader>go :copen<CR>
+nnoremap <leader>gc :cclose<CR>
+nnoremap <leader>gn :cnext<CR>
+nnoremap <leader>gp :cprev<CR>
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -76,9 +81,7 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set termguicolors
-
 colorscheme dracula
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,7 +130,7 @@ nnoremap <leader>t :enew<CR>
 nnoremap <leader>l :bnext<CR>
 
 " Go to the previous buffer
-nnoremap <leader>h :bprev<CR>
+nnoremap <leader>j :bprev<CR>
 
 " List all the buffers
 nnoremap <leader>bl :Buffer<CR>
@@ -168,6 +171,12 @@ nnoremap <C-p> :Files<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 let g:move_key_modifier='C'
+
+
+" vim-better-whitepsace
+""""""""""""""""""""""""""""""""""""""""
+
+let g:strip_whitespace_on_save=1
 
 
 " vim-fugitive
