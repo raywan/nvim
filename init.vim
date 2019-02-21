@@ -2,7 +2,7 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : 2011-11-11
-" Last Changed : 2018-09-03
+" Last Changed : 2019-02-21
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
@@ -17,6 +17,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-clang'
 Plug 'junegunn/vim-emoji'
@@ -26,11 +27,11 @@ Plug 'matze/vim-move'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go'
 
 call plug#end()
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -41,6 +42,8 @@ let mapleader=","
 
 " Shortcut for make
 nnoremap<leader>m :make<CR>
+
+map <F2> :!./run<CR>
 
 " Quick editing and saving of init.vim
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -81,7 +84,8 @@ nnoremap <leader>gp :cprev<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set termguicolors
-colorscheme dracula
+set background=dark
+colorscheme gruvbox
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,7 +198,7 @@ nnoremap <silent> <leader>gl :Glog<CR>
 set laststatus=2
 set encoding=utf-8
 
-let g:airline_theme='dracula'
+let g:airline_theme='gruvbox'
 
 " Change the seperators
 let g:airline_left_sep = ' '
