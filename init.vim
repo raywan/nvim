@@ -18,8 +18,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-clang'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -157,18 +155,29 @@ au FileType go set tabstop=2
 " PLUGIN CONFIGURATIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" deoplete
-""""""""""""""""""""""""""""""""""""""""
-
-let g:deoplete#enable_at_startup=1
-
 
 " fzf
 """"""""""""""""""""""""""""""""""""""""
 
-"nnoremap ; :Buffers<CR>
+nnoremap <leader>; :Buffers<CR>
 nnoremap <C-p> :Files<CR>
-"nnoremap <leader>t :FZF<CR>
+nnoremap <leader>t :Tags<CR>
+
+" Make fzf colors match color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 
 " vim-move
