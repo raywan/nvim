@@ -2,7 +2,7 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : 2011-11-11
-" Last Changed : 2019-02-21
+" Updated      : 2019-03-25
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
@@ -28,6 +28,15 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go'
+Plug 'mhinz/vim-startify'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 call plug#end()
 
@@ -154,6 +163,11 @@ au FileType go set tabstop=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN CONFIGURATIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" deoplete
+""""""""""""""""""""""""""""""""""""""""
+
+let g:deoplete#enable_at_startup = 1
 
 
 " fzf
