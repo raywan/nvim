@@ -2,33 +2,39 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : 2011-11-11
-" Updated      : 2019-03-25
+" Updated      : 2019-03-26
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
-Plug 'jalvesaq/Nvim-R'
+
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/vim-emoji'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'matze/vim-move'
-Plug 'arcticicestudio/nord-vim'
 Plug 'vimwiki/vimwiki'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go'
 Plug 'mhinz/vim-startify'
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+
+Plug 'junegunn/vim-emoji'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Themes
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -50,7 +56,7 @@ let mapleader=","
 " Shortcut for make
 nnoremap<leader>m :make<CR>
 
-map <F2> :!./run<CR>
+map <silent> <F2> :!./run<CR>
 
 " Quick editing and saving of init.vim
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
