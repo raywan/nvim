@@ -26,7 +26,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
 
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -98,6 +97,8 @@ nnoremap <Leader>oh :e %<.h<CR>
 " Search visual selection with //
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
+" Live substitution
+set inccommand=nosplit
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " __AESTHETICS
