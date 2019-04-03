@@ -2,7 +2,7 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : 2011-11-11
-" Updated      : 2019-03-26
+" Updated      : 2019-04-03
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
@@ -18,6 +18,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go'
 Plug 'mhinz/vim-startify'
+Plug 'machakann/vim-highlightedyank'
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -30,6 +31,8 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Themes
 Plug 'arcticicestudio/nord-vim'
@@ -48,15 +51,15 @@ call plug#end()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GENERAL
+" __GENERAL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let mapleader=","
 
 " Shortcut for make
-nnoremap<leader>m :make<CR>
+nnoremap <leader>m :make -j8<CR>
 
-map <silent> <F2> :!./run<CR>
+map <F2> :!./bin/goose<CR>
 
 " Quick editing and saving of init.vim
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -72,14 +75,11 @@ set splitbelow
 set splitright
 
 " Set the maximum number of changes to keep
-set undolevels=1000
+set undolevels=10000
 
 " Disable the beeping
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-
-" Go to normal mode when in the terminal emulator
-tnoremap <Esc> <C-\><C-n>
 
 " Shortcut to insert dates (useful for vimwiki)
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -90,10 +90,17 @@ nnoremap <leader>gc :cclose<CR>
 nnoremap <leader>gn :cnext<CR>
 nnoremap <leader>gp :cprev<CR>
 
+" Switching between source/header files
+nnoremap <Leader>oc :e %<.c<CR>
+nnoremap <Leader>oC :e %<.cpp<CR>
+nnoremap <Leader>oh :e %<.h<CR>
+
+" Search visual selection with //
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" AESTHETICS
+" __AESTHETICS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set termguicolors
@@ -102,7 +109,7 @@ colorscheme gruvbox
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SPACES/TABS
+" __SPACES/TABS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set autoindent
@@ -113,12 +120,11 @@ set colorcolumn=80 " Show a column at 80 characters
 set smarttab " insert tab according to shiftwidth not tabstop
 
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
-nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-
+nnoremap <silent> <F6> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SEARCHING
+" __SEARCHING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set incsearch " Search as characters are typed
@@ -132,16 +138,15 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " Ignore version control
 noremap <silent> <leader><space> :nohlsearch<CR>
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BUFFERS
+" __BUFFERS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Hides the buffer instead of closing them
 set hidden
 
 " Open a new empty buffer
-nnoremap <leader>t :enew<CR>
+nnoremap <leader>e :enew<CR>
 
 " Go to the next buffer
 nnoremap <leader>l :bnext<CR>
@@ -153,11 +158,26 @@ nnoremap <leader>j :bprev<CR>
 nnoremap <leader>bl :Buffer<CR>
 
 " Delete the current buffer and move to the previous one
-nnoremap <leader>bq :bprev <Bar> :bd #<CR>
+nnoremap <leader>bq :bprev <Bar> :bd! #<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LANGUAGE CONFIGURATIONS
+" __TERMINAL (nvim)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('nvim')
+
+  " Go to normal mode when in the terminal emulator
+  tnoremap <Esc> <C-\><C-n>
+
+  " Since we've remapped escape, we still need a way to send escape to the terminal
+  tnoremap <C-v><Esc> <Esc>
+
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" __LANGUAGE CONFIGURATIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 au FileType go set noexpandtab
@@ -167,7 +187,7 @@ au FileType go set tabstop=2
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN CONFIGURATIONS
+" __PLUGIN CONFIGURATIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " deoplete
@@ -210,6 +230,7 @@ let g:move_key_modifier='C'
 """"""""""""""""""""""""""""""""""""""""
 
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 
 " vim-fugitive
@@ -268,6 +289,12 @@ highlight GitGutterAdd guifg = '#A3E28B'
 "let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 
+" NERDCommenter
+""""""""""""""""""""""""""""""""""""""""
+
+let g:NERDSpaceDelims = 1
+
+
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""
 
@@ -291,3 +318,14 @@ let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/index.wiki'},
 """"""""""""""""""""""""""""""""""""""""
 
 let g:go_auto_type_info = 1
+
+
+" vim-highlightedyank
+""""""""""""""""""""""""""""""""""""""""
+
+" For older versions of vim
+if !exists('##TextYankPost')
+  map y <Plug>(highlightedyank)
+endif
+
+let g:highlightedyank_highlight_duration = 333 "ms
