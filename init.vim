@@ -2,7 +2,7 @@
 " NeoVim Configurations
 " Author       : Raymond Wan
 " Created      : 2011-11-11
-" Updated      : 2019-04-03
+" Updated      : 2019-05-13
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.config/nvim/plugged')
@@ -16,9 +16,11 @@ Plug 'flazz/vim-colorschemes'
 Plug 'matze/vim-move'
 Plug 'vimwiki/vimwiki'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-highlightedyank'
+Plug 'jceb/vim-orgmode', { 'for': 'org' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -57,6 +59,7 @@ let mapleader=","
 
 " Shortcut for make
 nnoremap <leader>m :make -j8<CR>
+nnoremap <leader>n :!ninja -v<CR>
 
 map <F2> :!./bin/goose<CR>
 
@@ -99,6 +102,9 @@ vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 " Live substitution
 set inccommand=nosplit
+
+" Select last yanked
+nnoremap <leader>V `[v`]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " __AESTHETICS
