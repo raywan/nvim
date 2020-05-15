@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " @Author       : Raymond Wan
 " @Created      : 2011-11-11
-" @Updated      : 2020-05-06
+" @Updated      : 2020-05-15
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('C:\Users\Ray\AppData\Local\nvim\plugged')
@@ -85,10 +85,14 @@ noremap <leader>m :AsyncRun -program=make<CR>
 " :AsyncRun -program=make -cwd=demo
 
 " Switching between source/header files
-nnoremap <Leader>oc :e %<.c<CR>
-nnoremap <Leader>oC :e %<.cpp<CR>
-nnoremap <Leader>oh :e %<.h<CR>
+nnoremap <leader>oc :e %<.c<CR>
+nnoremap <leader>oC :e %<.cpp<CR>
+nnoremap <leader>oh :e %<.h<CR>
 
+" Switch the the alternate buffer
+nnoremap <leader><tab> <C-^>
+
+" Make it so that ctrl+c and ctrl+v work, which is convenient
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
