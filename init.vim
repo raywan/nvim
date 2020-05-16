@@ -13,13 +13,13 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
+colorscheme gruvbox
+
 let mapleader="\<space>"
 
 " Quick editing and saving of init.vim
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
-
-colorscheme gruvbox
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
 
 set mouse=a
 set number
@@ -64,11 +64,11 @@ nnoremap <leader>V `[v`]
 
 " Turn off search highlight
 noremap <silent> <leader><space> :nohlsearch<CR>
-noremap <leader>b :ls<CR>:b<space>
+noremap <leader>l :ls<CR>:b<space>
 " noremap <leader>bs :ls<CR>:sb<space>
 " noremap <leader>bv :ls<CR>:vert sb<space>
-noremap <leader>j :bprev<CR>
-noremap <leader>l :bnext<CR>
+noremap <leader>[ :bprev<CR>
+noremap <leader>] :bnext<CR>
 noremap <leader>q :bdelete<CR>
 noremap <leader>E :E<CR>
 noremap <leader>c :close<CR>
@@ -76,7 +76,6 @@ noremap <leader>f :find<space>
 noremap <leader>h :sp<CR>
 noremap <leader>v :vs<CR>
 noremap <leader>, :call QuickFixToggle()<CR>
-" noremap <leader>, :copen<CR>
 noremap <leader>. :cclose<CR>
 noremap <leader>n :cnext<CR>
 noremap <leader>p :cprev<CR>
@@ -98,6 +97,16 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
+nnoremap <leader>/ :vimgrep<space>
+
+" Default leader-g to be vimgrep and override it if ripgrep is available
+nnoremap <leader>g :vimgrep<space>
+if executable("rg")
+    nnoremap <leader>g :grep<space>
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    " set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
 " NOTE(ray): This has an issue where if I close quickfix via :q then I'll need
 " to call this twice to fix the state
 let g:rw_quickfix_is_open = 0
@@ -108,5 +117,16 @@ function! QuickFixToggle()
     else
         copen
         let g:rw_quickfix_is_open = 1
+    endif
+endfunction
+
+let g:rw_location_list_is_open = 0
+function! LocationListToggle()
+    if g:rw_location_list_is_open
+        cclose
+        let g:rw_location_list_is_open = 0
+    else
+        copen
+        let g:rw_location_list_is_open = 1
     endif
 endfunction
