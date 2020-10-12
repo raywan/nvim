@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " @Author       : Raymond Wan
 " @Created      : 2011-11-11
-" @Updated      : 2020-05-15
+" @Updated      : 2020-10-08
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('C:\Users\Ray\AppData\Local\nvim\plugged')
@@ -13,6 +13,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
+" colorscheme gruvbox
 colorscheme gruvbox
 
 let mapleader="\<space>"
@@ -25,6 +26,7 @@ set mouse=a
 set number
 set showcmd
 set autoread
+set cursorline
 set wrap
 
 " Disable the beeping
@@ -51,13 +53,14 @@ set incsearch " Search as characters are typed
 set hlsearch " Highlight search queries
 set ignorecase " Ignore case when searching
 set smartcase " Ignores case unless the query has capitals
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " Ignore version control
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.exe
 
 " Fuzzy find
 set path+=**
 set wildmenu
 
-set makeprg=build.bat
+" set makeprg=build_win32.bat
+set makeprg=ninja\ -f\ synthesis_engine_sdl_win32_opengl33.ninja\ -v
 
 " Select last yanked
 nnoremap <leader>V `[v`]
@@ -80,6 +83,11 @@ noremap <leader>. :cclose<CR>
 noremap <leader>n :cnext<CR>
 noremap <leader>p :cprev<CR>
 noremap <leader>m :AsyncRun -program=make<CR>
+noremap <F5> :AsyncRun -program=make<CR>
+noremap <F9> :AsyncRun! ninja -f synthesis_engine_sdl_win32_opengl33.ninja -v<CR>
+noremap <F10> :AsyncRun! ninja -f synthesis_engine_win32_opengl33.ninja -v<CR>
+noremap <F11> :AsyncRun! ninja -f synthesis_engine_sdl_win32_vulkan.ninja -v<CR>
+noremap <F12> :AsyncRun! ninja -f synthesis_engine_win32_vulkan.ninja -v<CR>
 " Can also set the current working directory like this
 " :AsyncRun -program=make -cwd=demo
 
@@ -90,6 +98,9 @@ nnoremap <leader>oh :e %<.h<CR>
 
 " Switch the the alternate buffer
 nnoremap <leader><tab> <C-^>
+
+" Delete all buffers except the current one (not working right now)
+map <leader><BS> :%bd\|e#<CR>
 
 " Make it so that ctrl+c and ctrl+v work, which is convenient
 vmap <C-c> "+yi
