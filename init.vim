@@ -11,10 +11,11 @@ Plug 'skywind3000/asyncrun.vim' " For running build.bat and other build files
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
+Plug 'beyondmarc/hlsl.vim'
 call plug#end()
 
 " colorscheme gruvbox
-colorscheme gruvbox
+colorscheme srcery
 
 let mapleader="\<space>"
 
@@ -141,3 +142,8 @@ function! LocationListToggle()
         let g:rw_location_list_is_open = 1
     endif
 endfunction
+
+augroup bgfx_sc_ft
+  au!
+  autocmd BufNewFile,BufRead *.sc set syntax=glsl
+augroup END
