@@ -54,14 +54,15 @@ set incsearch " Search as characters are typed
 set hlsearch " Highlight search queries
 set ignorecase " Ignore case when searching
 set smartcase " Ignores case unless the query has capitals
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.exe
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.exe,*.png,*.jpg,*.jpeg,*.bmp,*.pdb,*.sln,*.dll,*.lib,*/prototypes/*,*/deps/*
 
 " Fuzzy find
 set path+=**
 set wildmenu
 
 " set makeprg=build_win32.bat
-set makeprg=ninja\ -f\ synthesis_engine_sdl_win32_opengl33.ninja\ -v
+" set makeprg=ninja\ -f\ synthesis_engine_sdl_win32_opengl33.ninja\ -v
+set makeprg=build.bat
 
 " Select last yanked
 nnoremap <leader>V `[v`]
@@ -146,4 +147,6 @@ endfunction
 augroup bgfx_sc_ft
   au!
   autocmd BufNewFile,BufRead *.sc set syntax=glsl
+  autocmd BufNewFile,BufRead *.sc set tabstop=4
+  autocmd BufNewFile,BufRead *.sc set shiftwidth=4
 augroup END
