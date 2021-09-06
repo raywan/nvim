@@ -86,10 +86,10 @@ noremap <leader>n :cnext<CR>
 noremap <leader>p :cprev<CR>
 noremap <leader>m :AsyncRun -program=make<CR>
 noremap <F5> :AsyncRun -program=make<CR>
-noremap <F9> :AsyncRun! ninja -f synthesis_engine_sdl_win32_opengl33.ninja -v<CR>
-noremap <F10> :AsyncRun! ninja -f synthesis_engine_win32_opengl33.ninja -v<CR>
-noremap <F11> :AsyncRun! ninja -f synthesis_engine_sdl_win32_vulkan.ninja -v<CR>
-noremap <F12> :AsyncRun! ninja -f synthesis_engine_win32_vulkan.ninja -v<CR>
+noremap <F9> :AsyncRun! ninja -f rw_engine_win32_d3d12.ninja -v<CR>
+noremap <F10> :AsyncRun! ninja -f rw_engine_win32_opengl33.ninja -v<CR>
+noremap <F11> :AsyncRun! ninja -f rw_engine_sdl_win32_vulkan.ninja -v<CR>
+noremap <F12> :AsyncRun! ninja -f rw_engine_win32_vulkan.ninja -v<CR>
 " Can also set the current working directory like this
 " :AsyncRun -program=make -cwd=demo
 
