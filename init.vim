@@ -1,10 +1,18 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " @Author       : Raymond Wan
 " @Created      : 2011-11-11
-" @Updated      : 2020-10-08
+" @Updated      : 2022-06-08
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin('C:\Users\Ray\AppData\Local\nvim\plugged')
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:plug_path = "C:\\Users\\Ray\\AppData\\Local\\nvim\\plugged"
+    else
+        let g:plug_path = "~/.config/nvim/plugged"
+    endif
+endif
+
+call plug#begin(plug_path)
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
 Plug 'skywind3000/asyncrun.vim' " For running build.bat and other build files
@@ -12,7 +20,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'beyondmarc/hlsl.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
+syntax enable
+filetype plugin indent on
 
 " colorscheme gruvbox
 colorscheme srcery
@@ -69,7 +83,8 @@ nnoremap <leader>V `[v`]
 
 " Turn off search highlight
 noremap <silent> <leader><space> :nohlsearch<CR>
-noremap <leader>l :ls<CR>:b<space>
+"noremap <leader>l :ls<CR>:b<space>
+noremap <leader>l :Buffers<CR>
 " noremap <leader>bs :ls<CR>:sb<space>
 " noremap <leader>bv :ls<CR>:vert sb<space>
 noremap <leader>[ :bprev<CR>
@@ -77,7 +92,8 @@ noremap <leader>] :bnext<CR>
 noremap <leader>q :bdelete<CR>
 noremap <leader>E :E<CR>
 noremap <leader>c :close<CR>
-noremap <leader>f :find<space>
+" noremap <leader>f :find<space>
+noremap <leader>f :Files<CR>
 noremap <leader>h :sp<CR>
 noremap <leader>v :vs<CR>
 noremap <leader>, :call QuickFixToggle()<CR>
@@ -87,8 +103,8 @@ noremap <leader>p :cprev<CR>
 noremap <leader>m :AsyncRun -program=make<CR>
 noremap <F5> :AsyncRun -program=make<CR>
 noremap <F9> :AsyncRun! ninja -f rw_engine_win32_d3d12.ninja -v<CR>
-noremap <F10> :AsyncRun! ninja -f rw_engine_win32_opengl33.ninja -v<CR>
-noremap <F11> :AsyncRun! ninja -f rw_engine_sdl_win32_vulkan.ninja -v<CR>
+noremap <F10> :AsyncRun! ninja -f rw_engine_sdl_win32_d3d12.ninja -v<CR>
+noremap <F11> :AsyncRun! ninja -f rw_engine_win32_opengl33.ninja -v<CR>
 noremap <F12> :AsyncRun! ninja -f rw_engine_win32_vulkan.ninja -v<CR>
 " Can also set the current working directory like this
 " :AsyncRun -program=make -cwd=demo
