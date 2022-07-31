@@ -23,13 +23,15 @@ Plug 'beyondmarc/hlsl.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'EdenEast/nightfox.nvim'
 call plug#end()
 
 syntax enable
 filetype plugin indent on
 
 " colorscheme gruvbox
-colorscheme srcery
+" colorscheme srcery
+colorscheme nightfox
 
 let mapleader="\<space>"
 
