@@ -24,14 +24,22 @@ Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'sainnhe/everforest'
 call plug#end()
 
 syntax enable
 filetype plugin indent on
 
+if has('termguicolors')
+    set termguicolors
+endif
+
 " colorscheme gruvbox
 " colorscheme srcery
-colorscheme nightfox
+" colorscheme nightfox
+let g:everforest_background = 'hard'
+let g:everforest_better_performance = 1
+colorscheme everforest
 
 let mapleader="\<space>"
 
@@ -78,7 +86,8 @@ set wildmenu
 
 " set makeprg=build_win32.bat
 " set makeprg=ninja\ -f\ synthesis_engine_sdl_win32_opengl33.ninja\ -v
-set makeprg=build.bat
+" set makeprg=build.bat
+set makeprg=ninja\ -C\ build\ -v
 
 " Select last yanked
 nnoremap <leader>V `[v`]
