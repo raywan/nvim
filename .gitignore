@@ -735,3 +735,4 @@ MigrationBackup/
 plugged/*/
 autoload/*
 !autoload/.gitkeep
+lazy-lock.json
