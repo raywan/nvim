@@ -99,12 +99,10 @@ vim.opt.smartcase = true
 
 vim.opt.wildmenu = true
 
-local tele_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', tele_builtin.find_files, {})
-vim.keymap.set('n', '<leader>g', tele_builtin.live_grep, {})
-vim.keymap.set('n', '<leader>l', tele_builtin.buffers, {})
-vim.keymap.set('n', '<leader>h', tele_builtin.help_tags, {})
-
+vim.keymap.set('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>')
+vim.keymap.set('n', '<leader>sv', '<cmd>so $MYVIMRC<CR>')
+vim.keymap.set('n', '<leader>h', '<cmd>sp<CR>')
+vim.keymap.set('n', '<leader>v', '<cmd>vs<CR>')
 vim.keymap.set('n', '<leader>h', '<cmd>sp<CR>')
 vim.keymap.set('n', '<leader>v', '<cmd>vs<CR>')
 vim.keymap.set('n', '<leader><space>', '<cmd>nohlsearch<CR>')
@@ -113,6 +111,14 @@ vim.keymap.set('n', '<leader>]', '<cmd>bnext<CR>')
 vim.keymap.set('n', '<leader>c', '<cmd>close<CR>')
 vim.keymap.set('n', '<leader>q', '<cmd>bdelete<CR>')
 vim.keymap.set('n', '<leader><tab>', '<C-^>')
+
+local tele_builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f', tele_builtin.find_files, {})
+vim.keymap.set('n', '<leader>g', tele_builtin.live_grep, {})
+vim.keymap.set('n', '<leader>l', tele_builtin.buffers, {})
+vim.keymap.set('n', '<leader>h', tele_builtin.help_tags, {})
+
+vim.keymap.set('n', '<leader>\\', '<cmd>Neotree toggle<CR>')
 
 
 if vim.g.neovide then
