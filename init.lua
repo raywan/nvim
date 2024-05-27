@@ -18,11 +18,25 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- COLORS
+    -- BEGIN: COLORS ------------------------------------------------
+
     "EdenEast/nightfox.nvim",
     "sainnhe/everforest",
+    "yorickpeterse/vim-paper",
+    { 
+        "ntk148v/komau.vim",
+        config = function()
+            vim.g.komau_italic = 1
+            vim.g.komau_bold = 1
+        end,
+    },
+    {
+        "mcchrish/zenbones.nvim", 
+        dependencies = { "rktjmp/lush.nvim" }
+    },
 
-    -- "flazz/vim-colorschemes",
+    -- END: COLORS ---------------------------------------------------
+
     -- "skywind3000/asyncrun.vim",
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
@@ -67,9 +81,11 @@ require("lazy").setup({
     },
 })
 
-vim.cmd("colorscheme nightfox")
 
-vim.opt.guifont = "Berkeley Mono:h11"
+vim.opt.background = "dark"
+vim.cmd("colorscheme komau")
+
+vim.opt.guifont = "Berkeley Mono:h10"
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -85,9 +101,8 @@ vim.opt.wrap  = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-
--- set tabstop=4
--- set shiftwidth=4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
@@ -98,6 +113,9 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.wildmenu = true
+
+vim.keymap.set('n', '<leader><F11>', '<cmd>set background=dark<CR>')
+vim.keymap.set('n', '<leader><F12>', '<cmd>set background=light<CR>')
 
 vim.keymap.set('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>')
 vim.keymap.set('n', '<leader>sv', '<cmd>so $MYVIMRC<CR>')
@@ -119,6 +137,11 @@ vim.keymap.set('n', '<leader>l', tele_builtin.buffers, {})
 vim.keymap.set('n', '<leader>h', tele_builtin.help_tags, {})
 
 vim.keymap.set('n', '<leader>\\', '<cmd>Neotree toggle<CR>')
+
+vim.keymap.set('v', '<C-c>', '"+yi')
+vim.keymap.set('v', '<C-x>', '"+c')
+vim.keymap.set('v', '<C-v>', 'c<ESC>"+p')
+vim.keymap.set('i', '<C-v>', '<ESC>"+pa')
 
 
 if vim.g.neovide then
